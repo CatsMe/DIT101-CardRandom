@@ -28,14 +28,37 @@ namespace LabSheet08
             lblInfo.Text = "Player " + currentBututton.Text + " Computer " +
                 comDeck[topIndex];
 
-            if (Convert.ToInt32(currentBututton.Text) > comDeck[topIndex])
+
+            if (Convert.ToInt32(currentBututton.Text) == 1 && comDeck[topIndex] == 15)
             {
                 lblInfo.Text += " Player Win!!";
                 lblPlayerPoint.Text = (Convert.ToInt32(lblPlayerPoint.Text) + 1)
                     .ToString();
             }
+            else if (Convert.ToInt32(currentBututton.Text) == 15 && comDeck[topIndex] == 1)
+            {
+                lblInfo.Text += " Computer Win!!";
+                lblComPoint.Text = (Convert.ToInt32(lblComPoint.Text) + 1)
+                    .ToString();
+            }
+            else if (Convert.ToInt32(currentBututton.Text) > comDeck[topIndex])
+            {
+                lblInfo.Text += " Player Win!!";
+                lblPlayerPoint.Text = (Convert.ToInt32(lblPlayerPoint.Text) + 1)
+                    .ToString();
+            }
+            else if (Convert.ToInt32(currentBututton.Text) == comDeck[topIndex])
+            {
+                lblInfo.Text += " Draw!!";
+            }
+            else
+            {
+                lblInfo.Text += " Computer Win!!";
+                lblComPoint.Text = (Convert.ToInt32(lblComPoint.Text) + 1)
+                    .ToString();
+            }
 
-            currentBututton.Enabled = false;
+                currentBututton.Enabled = false;
             topIndex++;
         }
 
